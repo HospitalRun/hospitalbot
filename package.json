@@ -1,6 +1,6 @@
 {
   "name": "hospitalbot",
-  "version": "2.0.0n ",
+  "version": "2.0.0",
   "private": true,
   "author": "hello@hospitalrun.io",
   "description": "HospitalRun Hubot instance",
@@ -18,7 +18,8 @@
     "hubot-rules": "^1.0.0",
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
-    "hubot-slack": "^4.7.1"
+    "hubot-slack": "^4.7.1",
+    "underscore": "^1.9.1"
   },
   "engines": {
     "node": "0.10.x"

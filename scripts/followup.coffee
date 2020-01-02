@@ -12,13 +12,13 @@ module.exports = (robot) ->
     # Query Parameter
     query_params = state: "open", sort: "created"
     query_params.per_page=100
-    query_params.labels = 'followup'
+    query_params.labels = 'good first issue'
 
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'
     github.get "#{base_url}/repos/#{process.env.HUBOT_GITHUB_REPO}/issues", query_params, (issues) ->
       if !_.isEmpty issues
         for issue in issues
           labels = ("`##{label.name}`" for label in issue.labels).join(" ")
-          msg.send "> [`#{issue.number}`] *#{issue.title} #{labels}* #{issue.html_url}"
+          msg.send "Hey @here, here's a new issue for you: [`#{issue.number}`] *#{issue.title} #{labels}* #{issue.html_url}"
       else
         msg.send "Congratulations! Nothing to followup!"
