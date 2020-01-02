@@ -15,10 +15,24 @@ module.exports = (robot) ->
     query_params.labels = 'good first issue'
 
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'
-    github.get "#{base_url}/repos/#{process.env.HUBOT_GITHUB_REPO}/issues", query_params, (issues) ->
+    github.get "#{base_url}/repos/#{process.env.HUBOT_GITHUB_REPOFRONTEND}/issues", query_params, (issues) ->
       if !_.isEmpty issues
         for issue in issues
           labels = ("`##{label.name}`" for label in issue.labels).join(" ")
           msg.send "Hey @here, here's a new issue for you: [`#{issue.number}`] *#{issue.title} #{labels}* #{issue.html_url}"
       else
-        msg.send "Congratulations! Nothing to followup!"
+        msg.send "Congratulations! Nothing to followup on Frontend repository!"
+    github.get "#{base_url}/repos/#{process.env.HUBOT_GITHUB_REPOCOMPONENTS}/issues", query_params, (issues) ->
+      if !_.isEmpty issues
+        for issue in issues
+          labels = ("`##{label.name}`" for label in issue.labels).join(" ")
+          msg.send "Hey @here, here's a new issue for you: [`#{issue.number}`] *#{issue.title} #{labels}* #{issue.html_url}"
+      else
+        msg.send "Congratulations! Nothing to followup on Components repository!"
+    github.get "#{base_url}/repos/#{process.env.HUBOT_GITHUB_REPOSERVER}/issues", query_params, (issues) ->
+      if !_.isEmpty issues
+        for issue in issues
+          labels = ("`##{label.name}`" for label in issue.labels).join(" ")
+          msg.send "Hey @here, here's a new issue for you: [`#{issue.number}`] *#{issue.title} #{labels}* #{issue.html_url}"
+      else
+        msg.send "Congratulations! Nothing to followup on Server repository!"
