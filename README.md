@@ -64,17 +64,6 @@ the thing.
 
 [scripting-docs]: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-### Followup script
-
-The script is used to report new issues labeled `good first issue` in the #contributors channel.
-The script is located in `scripts/followup.coffee` file.
-
-To use it just type
-
-```
-@hubot: followup
-```
-
 ### external-scripts
 
 There will inevitably be functionality that everyone will want. Instead of
