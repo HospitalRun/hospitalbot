@@ -8,5 +8,5 @@
   "hubot-maps",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-github-issue-label-notifier"
+  "hubot-github-repo-event-notifier"
 ]
